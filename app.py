@@ -130,10 +130,6 @@ def button_opslaan():
 
     st.write("NC-code succesvol opgeslagen.")
 
-def wijzigenkleur():
-    # Verander kleurlogica
-    st.set_page_config(page_title="SSV-app", page_icon=":wrench:", layout="wide", initial_sidebar_state="auto", \
-                       menu_items={"Get help": None, "Report a bug": ":bug:"})
 
 # UI-componenten
 st.title('SSV-app')
@@ -160,15 +156,11 @@ mmvariatie = st.sidebar.number_input('MM-variatie:', value=0.0, step=0.1, key='m
 if st.sidebar.button('Genereer', on_click=button_genereer):
     pass
 
-if st.sidebar.button('Opslaan', on_click=button_opslaan):
-    pass
 
 # Rechterkolom
-st.write('Voeg hier je code voor de rechterkolom toe.')
+st.write('Druk links onderin op genereer en de NC-code verschijnt hier:')
 
-# Wijzig kleur knop
-if st.button('Wijzig kleur'):
-    wijzigenkleur()
+
 
 #streamlit run D:\Wiljan Privé\test\app.py
 #cd D:\Wiljan Privé\test chrome app
