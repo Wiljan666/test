@@ -149,7 +149,7 @@ besturing = st.sidebar.selectbox('Besturing:', ['fanuc', 'siemens'], index=0, ke
 decimalen = st.sidebar.selectbox('Decimalen:', ['1', '2', '3', '4'], index=0, key='decimalen')
 voeding = st.sidebar.number_input('Voeding:', value=0.0, step=0.1, key='voeding')
 rpmvariatie = st.sidebar.number_input('RPM-variatie:', value=0, step=1, key='rpmvariatie')
-toerental = st.sidebar.number_input('Toerental:', value=0, step=1, key='toerental')
+toerental = st.sidebar.number_input('Basis RPM:', value=0, step=1, key='toerental')
 mmvariatie = st.sidebar.number_input('MM-variatie:', value=0.0, step=0.1, key='mmvariatie')
 
 # Genereer- en Opslaanknoppen
