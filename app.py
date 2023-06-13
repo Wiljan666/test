@@ -1,7 +1,7 @@
 import streamlit as st
 import datetime
 
-user_credentials = [ ("admin", "admin"),("heinie", "heinie"),("Sven","123"),("Johnno","123"),("Jelmer", "jelmer")]
+#user_credentials = [ ("admin", "admin"),("heinie", "heinie"),("Sven","123"),("Johnno","123"),("Jelmer", "jelmer")]
 
 
 def button_genereer():
