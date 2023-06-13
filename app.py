@@ -112,13 +112,15 @@ def write_login_log(username):
         file.write(log_entry)
 
 
-
-
 def login(username, password):
+    user_credentials = read_user_credentials()
     for user, pwd in user_credentials:
-        if user.lower() == username.lower() and pwd == password.lower():
+        if user.lower() == username.lower() and pwd == password:
+            write_login_log(username)
             return True
     return False
+
+
 
 def main():
     st.set_page_config(layout="wide")
