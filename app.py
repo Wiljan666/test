@@ -124,7 +124,7 @@ def show_login():
             if login(username, password):
                 st.session_state.logged_in = True
                 hide_login()
-                show_app()
+                st.experimental_rerun()#show_app()
             else:
                 st.error("Ongeldige gebruikersnaam of wachtwoord")
 
@@ -197,7 +197,7 @@ def show_app():
         pass
 
     # Rechterkolom
-    st.write('Voeg hier je code voor de rechterkolom toe.')
+    st.write("""Druk links onderin op 'genereer' en de NC-code wordt hier zichtbaar.""")
 
     # UI-componenten en logica van de app
     # Voeg hier de rest van je app logica toe
