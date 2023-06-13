@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit import secrets
 import datetime
 
+user_credentials = read_user_credentials()
 #user_credentials = [ ("admin", "admin"),("heinie", "heinie"),("Sven","123"),("Johnno","123"),("Jelmer", "jelmer")]
 
 
