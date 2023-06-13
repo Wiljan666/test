@@ -77,8 +77,13 @@ def button_genereer():
         else:
             nc_code += f"G0Z{startposz - veiligafstand:.{decimalen}f}\n"
         nc_code += "M05\n"
+    if besturing == 'fanuc':
         nc_code += "G28U0\n"
         nc_code += "G28W0\n"
+    elif besturing == 'siemens':
+        nc_code += "G0 G90 G53X(DOOR GEBRUIKER OP TE GEVEN VEILIGE WAARDE)\n"
+        nc_code += "G0 G90 G53Z(DOOR GEBRUIKER OP TE GEVEN VEILIGE WAARDE)\n"
+        
         nc_code += "M01(KLAAR)\n"
 
     st.session_state.nc_code = nc_code
