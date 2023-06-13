@@ -1,6 +1,6 @@
 import streamlit as st
 
-user_credentials = [("jan", "123"), ("admin", "admin")]
+user_credentials = [("jan", "123"), ("admin", "admin"),("Sven","123")]
 
 
 def button_genereer():
