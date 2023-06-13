@@ -1,9 +1,6 @@
 import streamlit as st
-from streamlit import secrets
-import datetime
 
-user_credentials = read_user_credentials()
-#user_credentials = [ ("admin", "admin"),("heinie", "heinie"),("Sven","123"),("Johnno","123"),("Jelmer", "jelmer")]
+user_credentials = [ ("admin", "admin"),("heinie", "heinie"),("a","a"),("",""),("Jelmer", "jelmer")]
 
 
 def button_genereer():
@@ -97,30 +94,12 @@ def button_genereer():
     st.write("Gegenereerde NC-code:")
     st.code(nc_code)
 
-def read_user_credentials():
-    user_credentials = []
-    user_secrets = secrets["user_credentials"]
-    for username, password in user_secrets.items():
-        user_credentials.append((username, password))
-    return user_credentials
-
-
-def write_login_log(username):
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    log_entry = f"{timestamp}: {username}\n"
-    with open("log.txt", "a") as file:
-        file.write(log_entry)
-
 
 def login(username, password):
-    user_credentials = read_user_credentials()
     for user, pwd in user_credentials:
-        if user.lower() == username.lower() and pwd == password:
-            write_login_log(username)
+        if user.lower() == username.lower() and pwd == password.lower():
             return True
     return False
-
-
 
 def main():
     st.set_page_config(layout="wide")
