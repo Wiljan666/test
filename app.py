@@ -106,7 +106,7 @@ def read_user_credentials():
     return user_credentials
 
 def write_login_log(username):
-    timestamp = datetime.datetime.now()
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     log_entry = f"{timestamp}: {username}\n"
     with open("log.txt", "a") as file:
         file.write(log_entry)
