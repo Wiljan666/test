@@ -191,7 +191,7 @@ def show_app():
     veiligafstand = st.sidebar.number_input('Veiligafstand:', step=0.1, key='veiligafstand')
 
 
-    with st.sidebar.expander('Machine instellingen'):
+    with st.sidebar.expander('Machine instellingen',expanded=True):
         besturing = st.selectbox('Besturing:', ['fanuc', 'siemens'], index=0, key='besturing')
         decimalen = st.selectbox('Decimalen:', ['1', '2', '3', '4'], index=0, key='decimalen')
         voeding = st.number_input('Voeding:',  step=0.1, key='voeding')
