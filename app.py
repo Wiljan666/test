@@ -189,7 +189,7 @@ def show_app():
     startposz = st.sidebar.number_input('Startpositie Z:', step=0.1, key='startposz')
     eindposz = st.sidebar.number_input('Eindpositie Z:',  step=0.1, key='eindposz')
     veiligafstand = st.sidebar.number_input('Veiligafstand:', step=0.1, key='veiligafstand')
-    st.sidebar.subheader('Machine instellingen')
+    st.sidebar.subheader.expander('Machine instellingen')
     besturing = st.sidebar.selectbox('Besturing:', ['fanuc', 'siemens'], index=0, key='besturing')
     decimalen = st.sidebar.selectbox('Decimalen:', ['1', '2', '3', '4'], index=0, key='decimalen')
     voeding = st.sidebar.number_input('Voeding:',  step=0.1, key='voeding')
