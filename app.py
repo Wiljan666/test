@@ -189,13 +189,15 @@ def show_app():
     startposz = st.sidebar.number_input('Startpositie Z:', step=0.1, key='startposz')
     eindposz = st.sidebar.number_input('Eindpositie Z:',  step=0.1, key='eindposz')
     veiligafstand = st.sidebar.number_input('Veiligafstand:', step=0.1, key='veiligafstand')
-    st.sidebar.expander('Machine instellingen')
-    besturing = st.sidebar.selectbox('Besturing:', ['fanuc', 'siemens'], index=0, key='besturing')
-    decimalen = st.sidebar.selectbox('Decimalen:', ['1', '2', '3', '4'], index=0, key='decimalen')
-    voeding = st.sidebar.number_input('Voeding:',  step=0.1, key='voeding')
-    rpmvariatie = st.sidebar.number_input('RPM-variatie:',  step=1, key='rpmvariatie')
-    toerental = st.sidebar.number_input('Toerental:',  step=1, key='toerental')
-    mmvariatie = st.sidebar.number_input('MM-variatie:',  step=0.1, key='mmvariatie')
+
+
+    with st.sidebar.expander('Machine instellingen'):
+        besturing = st.selectbox('Besturing:', ['fanuc', 'siemens'], index=0, key='besturing')
+        decimalen = st.selectbox('Decimalen:', ['1', '2', '3', '4'], index=0, key='decimalen')
+        voeding = st.number_input('Voeding:',  step=0.1, key='voeding')
+        rpmvariatie = st.number_input('RPM-variatie:',  step=1, key='rpmvariatie')
+        toerental = st.number_input('Toerental:',  step=1, key='toerental')
+        mmvariatie = st.number_input('MM-variatie:',  step=0.1, key='mmvariatie')
 
     # Genereer- en Opslaanknoppen
     if st.sidebar.button('Genereer', on_click=button_genereer):
