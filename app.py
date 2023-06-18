@@ -1,19 +1,16 @@
 import streamlit as st
-import subprocess
+import youtube_dl
 
 def download_video(url):
     try:
-        options = [
-            "youtube-dl",
-            "-o",
-            "./downloads/%(title)s.%(ext)s",
-            "-f",
-            "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
-            url,
-        ]
-        subprocess.run(options, check=True)
+        ydl_opts = {
+            'outtmpl': './downloads/%(title)s.%(ext)s',
+            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
+        }
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
         st.success("Downloaden gelukt!")
-    except subprocess.CalledProcessError as e:
+    except Exception as e:
         st.error(f"Er is een fout opgetreden bij het downloaden: {e}")
 
 # Streamlit-app
