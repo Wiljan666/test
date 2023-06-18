@@ -1,2 +1,2 @@
 streamlit==1.23.1
-youtube_dl
+pytube==10.8.5
