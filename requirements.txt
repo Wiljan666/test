@@ -1,1 +1,1 @@
-youtube_dl --upgrade
+pip install --upgrade youtube_dl
