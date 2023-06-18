@@ -1,21 +1,13 @@
 import streamlit as st
-import subprocess
+from pytube import YouTube
 
 def download_video(url):
     try:
-        options = [
-            "youtube-dl",
-            "-o",
-            "./downloads/%(title)s.%(ext)s",
-            "--format",
-            "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
-            "--verbose",
-            "--ignore-errors",
-            url,
-        ]
-        subprocess.run(options, check=True)
+        yt = YouTube(url)
+        video = yt.streams.get_highest_resolution()
+        video.download('./downloads')
         st.success("Downloaden gelukt!")
-    except subprocess.CalledProcessError as e:
+    except Exception as e:
         st.error(f"Er is een fout opgetreden bij het downloaden: {e}")
 
 # Streamlit-app
