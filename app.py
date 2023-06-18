@@ -10,6 +10,7 @@ def download_video(url):
             "--format",
             "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
             "--verbose",
+            "--ignore-errors",
             url,
         ]
         subprocess.run(options, check=True)
