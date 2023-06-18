@@ -6,6 +6,7 @@ def download_video(url):
         ydl_opts = {
             'outtmpl': './downloads/%(title)s.%(ext)s',
             'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
+            'verbose': True,
         }
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
