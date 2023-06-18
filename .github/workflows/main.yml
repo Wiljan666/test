@@ -1,0 +1,17 @@
+name: Upgrade youtube_dl
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Upgrade youtube_dl
+        run: pip install --upgrade -r requirements.txt
