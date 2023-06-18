@@ -1,31 +1,25 @@
 import streamlit as st
-import subprocess
+from pytube import YouTube
 
-# Functie voor het downloaden van de video
-def start_download_video(url, switch_value):
+def download_video(url):
     try:
-        options = [
-            "youtube-dl",
-            "-o",
-            "%(title)s.%(ext)s",
-            "-f",
-            "bestaudio/best" if switch_value else "bestvideo+bestaudio",
-            url,
-        ]
-        subprocess.run(options, check=True)
-        if switch_value:
-            st.success("Downloaden audio gelukt")
-        else:
-            st.success("Downloaden video gelukt")
-    except subprocess.CalledProcessError:
-        st.error("Download link niet correct")
+        yt = YouTube(url)
+        stream = yt.streams.get_highest_resolution()
+        output_path = f"./downloads/{yt.title}.{stream.subtype}"
+        stream.download(output_path)
+        st.success("Downloaden gelukt!")
+    except Exception as e:
+        st.error(f"Er is een fout opgetreden bij het downloaden: {e}")
 
-# UI-elementen
+# Streamlit-app
 st.title("YouTube Downloader")
-st.subheader("Geef een YouTube URL op")
-yt_link = st.text_input("YouTube URL")
-switch_checkbox = st.checkbox("Alleen audio")
-start_download_button = st.button("Download", key="download_button")
 
-if start_download_button:
-    start_download_video(yt_link, switch_checkbox)
+# Invoerveld voor URL
+url = st.text_input("Voer de YouTube-video URL in")
+
+# Downloadknop
+if st.button("Download"):
+    if url:
+        download_video(url)
+    else:
+        st.warning("Voer een geldige YouTube-video URL in.")
